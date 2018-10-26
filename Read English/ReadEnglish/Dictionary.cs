@@ -11,7 +11,7 @@ namespace ReadEnglish
 {
     public class Dictionary
     {
-        public struct dictionaryEntry
+        public class dictionaryEntry
         {
             public string word;
             public string transcriptionAmerican;
@@ -132,7 +132,7 @@ namespace ReadEnglish
             int count = int.Parse(reader.ReadLine());
             for (int i = 0; i < count; i++)
             {
-                dictionaryEntry tmp;
+                dictionaryEntry tmp = new dictionaryEntry();
                 tmp.word = reader.ReadLine();
                 tmp.transcriptionAmerican = reader.ReadLine();
                 tmp.transcriptionBritish = reader.ReadLine();

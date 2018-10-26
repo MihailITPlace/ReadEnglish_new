@@ -14,17 +14,25 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using MahApps.Metro.Controls;
 
 namespace ReadEnglish_newUI
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
+        List<DictionaryEntry> dictionaryEntryList;
         public MainWindow()
         {
             InitializeComponent();
+            dictionaryEntryList = new List<DictionaryEntry>();
+                        
+            dictionaryDataGrid.ItemsSource = dictionaryEntryList;
+
+            dictionaryEntryList.Add(new DictionaryEntry("aaa", "aaa" , "sss"));
         }
+
     }
 }
