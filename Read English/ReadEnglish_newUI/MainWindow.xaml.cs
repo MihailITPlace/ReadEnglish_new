@@ -31,7 +31,10 @@ namespace ReadEnglish_newUI
                         
             dictionaryDataGrid.ItemsSource = dictionaryEntryList;
 
-            dictionaryEntryList.Add(new DictionaryEntry("aaa", "aaa" , "sss"));
+            //Тестирование доступа
+            mainMonitor.Gauge.Value = 67;
+            textMonitor.Gauge.Value = 35;
+            //dictionaryEntryList.Add(new DictionaryEntry("aaa", "aaa" , "sss"));
         }
 
     }

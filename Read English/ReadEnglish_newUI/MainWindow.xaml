@@ -54,8 +54,9 @@
                             </Grid>
                             
                         </Grid>
-                        
-                        <Grid Grid.Row="1">
+
+                        <local:UIMonitor Grid.Row="1" x:Name="mainMonitor"/>
+                        <!--<Grid Grid.Row="1">                            
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*" />
@@ -63,8 +64,7 @@
                             
                             <lvc:Gauge Grid.Column="0" Margin="10" Uses360Mode="True" From="0" To="100" Value="47"/>
                             <TextBlock Grid.Column="1" Text="Поле статистики" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                        </Grid>
+                        </Grid>-->
                     </Grid>
                 </Controls:MetroTabItem>
 
@@ -75,6 +75,8 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
+                        <local:UIMonitor Grid.Row="0" x:Name="textMonitor"/>
+                        
                         <DataGrid x:Name="dictionaryDataGrid" Grid.Row="1" AutoGenerateColumns="False" Background="{StaticResource grayColor}" IsReadOnly="True">
                             <DataGrid.Resources>
                                 <Style x:Key="elementStyle" TargetType="TextBlock">
