@@ -50,18 +50,48 @@ namespace ReadEnglish_newUI
         private void cmbFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbFontFamily.SelectedItem != null)
+            {
                 mainRTB.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, cmbFontFamily.SelectedItem);
-        }
+            }
 
-        private void cmbFontSize_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //mainRTB.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text);
+            mainRTB.Focus();
         }
 
         private void cmbFontSize_SelectionChanged(object sender, RoutedEventArgs e)
         {
             if (cmbFontSize.SelectedItem != null)
+            {
                 mainRTB.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.SelectedItem);
+            }
+
+            mainRTB.Focus();
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintCommand();
+        }
+
+        private void PrintCommand()
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if ((printDialog.ShowDialog() == true))
+            {
+                var flowDoc = mainRTB.Document;
+
+                flowDoc.PageHeight = printDialog.PrintableAreaHeight;
+                flowDoc.PageWidth = printDialog.PrintableAreaWidth;
+                flowDoc.PagePadding = new Thickness(25);
+
+                flowDoc.ColumnGap = 0;
+
+                flowDoc.ColumnWidth = (flowDoc.PageWidth -
+                                       flowDoc.ColumnGap -
+                                       flowDoc.PagePadding.Left -
+                                       flowDoc.PagePadding.Right);
+
+                printDialog.PrintDocument(((IDocumentPaginatorSource)flowDoc).DocumentPaginator, "printing as paginator");
+            }
         }
     }
 }

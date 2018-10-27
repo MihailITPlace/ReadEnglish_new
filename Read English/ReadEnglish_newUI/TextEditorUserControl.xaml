@@ -90,6 +90,10 @@
                 <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignJustify" ToolTip="По ширине" Content="full">
                     <!--<Image Source="Images\ParagraphFullJustify.png"></Image>-->
                 </Button>
+
+                <Button x:Name="btnPrint" Style="{StaticResource formatImageStyle}" Click="btnPrint_Click">
+                    print
+                </Button>
             </ToolBar>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto">
