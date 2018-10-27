@@ -1,0 +1,101 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReadEnglish_newUI"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ReadEnglish_newUI.textEditorUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <!-- Set the styles for the tool bar. -->
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}" x:Key="formatTextStyle">
+                <Setter Property="FontFamily" Value="Palatino Linotype"/>
+                <Setter Property="Width" Value="45"/>
+                <Setter Property="FontSize" Value ="14"/>
+            </Style>
+
+            <Style TargetType="{x:Type ToggleButton}" x:Key="formatTextStyleTog">
+                <Setter Property="FontFamily" Value="Palatino Linotype"/>
+                <Setter Property="Width" Value="45"/>
+                <Setter Property="FontSize" Value ="14"/>
+            </Style>
+
+            <Style TargetType="{x:Type Button}" x:Key="formatImageStyle">
+                <Setter Property="Width" Value="45"/>
+            </Style>
+        </Grid.Resources>
+
+        <DockPanel x:Name="mainPanel">
+
+            <!-- This tool bar contains all the editing buttons. -->
+            <ToolBar x:Name="mainToolBar" Height="35" DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
+
+                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Undo" ToolTip="Отменить" Content="undo">
+                    <!--<Image Source="Images\EditUndo.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Redo" ToolTip="Вернуть" Content="redo">
+                    <!--<Image Source="Images\EditRedo.png"></Image>-->
+                </Button>
+
+                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Cut" ToolTip="Вырезать" Content="cut">
+                    <!--<Image Source="Images\EditCut.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Copy" ToolTip="Копировать" Content="copy">
+                    <!--<Image Source="Images\EditCopy.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Paste" ToolTip="Вставить" Content="paste">
+                    <!--<Image Source="Images\EditPaste.png"></Image>-->
+                </Button>
+
+                <!--<ComboBox x:Name="cmbFontFamily" Width="100" TextBoxBase.SelectionChanged="cmbFontFamily_SelectionChanged"/>
+                <ComboBox x:Name="cmbFontSize" TextBoxBase.SelectionChanged="cmbFontSize_SelectionChanged"/>-->
+
+                <ComboBox x:Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox x:Name="cmbFontSize" Width="50" SelectionChanged="cmbFontSize_SelectionChanged"/>
+
+                <ToggleButton x:Name="btnBold" Style="{StaticResource formatTextStyleTog}" Command="EditingCommands.ToggleBold" ToolTip="Жирный">
+                    <TextBlock FontWeight="Bold"><Run Text="B"/></TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="btnItalic" Style="{StaticResource formatTextStyleTog}" Command="EditingCommands.ToggleItalic" ToolTip="Курсив">
+                    <TextBlock FontStyle="Italic" FontWeight="Bold"><Run Text="I"/></TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="btnUnderline" Style="{StaticResource formatTextStyleTog}" Command="EditingCommands.ToggleUnderline" ToolTip="Подчёркнутый">
+                    <TextBlock TextDecorations="Underline" FontWeight="Bold"><Run Text="U"/></TextBlock>
+                </ToggleButton>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.IncreaseFontSize" ToolTip="Grow Font" Content="GrowFont">
+                    <!--<Image Source="Images\CharacterGrowFont.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.DecreaseFontSize" ToolTip="Shrink Font" Content="ShrinkFont">
+                    <!--<Image Source="Images\CharacterShrinkFont.png"></Image>-->
+                </Button>
+
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleBullets" ToolTip="Список точки" Content="ListBullets">
+                    <!--<Image Source="Images\ListBullets.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleNumbering" ToolTip="Список числа" Content="ListNumbering">
+                    <!--<Image Source="Images/ListNumbering.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignLeft" ToolTip="По левому краю" Content="left">
+                    <!--<Image Source="Images\ParagraphLeftJustify.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignCenter" ToolTip="По центру" Content="center">
+                    <!--<Image Source="Images\ParagraphCenterJustify.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignRight" ToolTip="По правому краю" Content="right">
+                    <!--<Image Source="Images\ParagraphRightJustify.png"></Image>-->
+                </Button>
+                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignJustify" ToolTip="По ширине" Content="full">
+                    <!--<Image Source="Images\ParagraphFullJustify.png"></Image>-->
+                </Button>
+            </ToolBar>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <RichTextBox x:Name="mainRTB" AcceptsTab="True" SelectionChanged="mainRTB_SelectionChanged"
+                         FontSize="14" FontFamily="Arial" BorderThickness="0,1,0,0"/>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</UserControl>
