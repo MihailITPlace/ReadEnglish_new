@@ -9,22 +9,22 @@ namespace ReadEnglish
 {
     public class Monitor
     {
-        public int normText;
-        public int normSemestr;
-        public int normWords;
+        public int textRate;
+        public int semestrRate;
+        public int wordsRate;
 
         public Monitor(int text, int semestr)
         {
-            normText = text;
-            normSemestr = semestr;
-            normWords = text / 200;
+            textRate = text;
+            semestrRate = semestr;
+            wordsRate = text / 200;
         }
 
         public Monitor()
         {
-            normText = 5000;
-            normSemestr = 20000;
-            normWords = 25;
+            textRate = 5000;
+            semestrRate = 20000;
+            wordsRate = 25;
         }
 
         public int countSymbol(string text)
@@ -42,7 +42,7 @@ namespace ReadEnglish
         }
         public int percentText(string text)
         {
-            return (countSymbol(text) * 100) / normText;
+            return (countSymbol(text) * 100) / textRate;
         }
 
         public int percentSemester(string directory)
@@ -54,7 +54,7 @@ namespace ReadEnglish
 
         public int percentWord(int countWords)
         {
-            return (countWords * 100) / normWords;
+            return (countWords * 100) / wordsRate;
         }
 
         public void save(string fileName)
@@ -62,8 +62,8 @@ namespace ReadEnglish
             FileStream file = new FileStream(fileName, FileMode.Create, FileAccess.Write);
             StreamWriter writer = new StreamWriter(file, Encoding.Unicode);
 
-            writer.WriteLine(normText);
-            writer.WriteLine(normWords);
+            writer.WriteLine(textRate);
+            writer.WriteLine(wordsRate);
 
             writer.Close();
             file.Close();
@@ -74,8 +74,8 @@ namespace ReadEnglish
             FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(file, Encoding.Unicode);
 
-            normText = int.Parse(reader.ReadLine());
-            normWords = int.Parse(reader.ReadLine());
+            textRate = int.Parse(reader.ReadLine());
+            wordsRate = int.Parse(reader.ReadLine());
 
             reader.Close();
             file.Close();

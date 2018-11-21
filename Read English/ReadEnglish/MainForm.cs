@@ -53,11 +53,11 @@ namespace ReadEnglish
             graphicChart.Refresh();
 
             //// слова
-            graphCaptionLabel2.Text = countSym.ToString() + " / " + myMonitor.normText.ToString();
-            textBox5.Text = countSym.ToString() + " / " + myMonitor.normText.ToString();
+            graphCaptionLabel2.Text = countSym.ToString() + " / " + myMonitor.textRate.ToString();
+            textBox5.Text = countSym.ToString() + " / " + myMonitor.textRate.ToString();
             //// знаки
-            textBox2.Text = myDictionary.entryCount().ToString() + " / " + myMonitor.normWords.ToString();
-            label3.Text = myDictionary.entryCount().ToString() + " / " + myMonitor.normWords.ToString();
+            textBox2.Text = myDictionary.entryCount().ToString() + " / " + myMonitor.wordsRate.ToString();
+            label3.Text = myDictionary.entryCount().ToString() + " / " + myMonitor.wordsRate.ToString();
             //// имя файла
         }
 
@@ -237,7 +237,7 @@ namespace ReadEnglish
 
             Directory.Delete(filePath, true);
 
-            numericUpDown2.Value = myMonitor.normText;
+            numericUpDown2.Value = myMonitor.textRate;
             dictionaryGrid.Rows.Clear();
             int count = myDictionary.entryCount();
             for (int i = 0; i < count; i++)
@@ -274,8 +274,8 @@ namespace ReadEnglish
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            myMonitor.normText = (int) numericUpDown2.Value;
-            myMonitor.normWords = (int)(myMonitor.normText / 200);
+            myMonitor.textRate = (int) numericUpDown2.Value;
+            myMonitor.wordsRate = (int)(myMonitor.textRate / 200);
             renewalMonitorLabel();
         }
 

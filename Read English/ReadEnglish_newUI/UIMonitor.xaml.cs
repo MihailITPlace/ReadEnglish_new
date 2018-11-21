@@ -20,9 +20,50 @@ namespace ReadEnglish_newUI
     /// </summary>
     public partial class UIMonitor : UserControl
     {
+        //public int RequiredNumberOfWords
+        //{
+        //    get { return (int)GetValue(RequiredNumberOfWordsProperty); }
+        //    set
+        //    {
+        //        SetValue(RequiredNumberOfWordsProperty, value);
+        //        wordsTextBlock.Text = "0/" + value;
+        //    }
+        //}
+
+        //public static readonly DependencyProperty RequiredNumberOfWordsProperty;
+
+        //static UIMonitor()
+        //{
+
+        //    var metaData = new FrameworkPropertyMetadata(25, FrameworkPropertyMetadataOptions.AffectsRender |
+        //                             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+        //                             new PropertyChangedCallback(OnRequiredNumberOfWordsChanged),
+        //                             new CoerceValueCallback(CoerceRequiredNumberOfWords));
+
+        //    RequiredNumberOfWordsProperty = DependencyProperty.Register("RequiredNumberOfWords", typeof(int), typeof(UIMonitor), metaData);
+        //}
+
+
+        //private static object CoerceRequiredNumberOfWords(DependencyObject d, object value)
+        //{
+        //    if (value is int)
+        //    {
+        //        return value;
+        //    }
+
+        //    return 0;
+        //}
+
+        //private static void OnRequiredNumberOfWordsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    //wordsTextBlock.Text = "0/" + RequiredNumberOfWords;
+
+        //}
+
         public UIMonitor()
         {
             InitializeComponent();
+
         }
     }
 }

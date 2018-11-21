@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StatisticsMonitor.cs" />
     <Compile Include="TextEditorUserControl.xaml.cs">
       <DependentUpon>TextEditorUserControl.xaml</DependentUpon>
     </Compile>

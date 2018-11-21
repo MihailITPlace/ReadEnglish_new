@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,16 @@ namespace ReadEnglish_newUI
     /// </summary>
     public partial class textEditorUserControl : UserControl
     {
+
+        public int CountNonSpaceCharacter
+        {
+            get
+            {
+                string text = new TextRange(mainRTB.Document.ContentStart, mainRTB.Document.ContentEnd).Text;
+                return Regex.Matches(text, @"[\w]").Count;
+            }
+        }
+
         public textEditorUserControl()
         {
             InitializeComponent();

@@ -25,7 +25,7 @@ namespace ReadEnglish
         {
             InitializeComponent();
             parentForm = f;
-            numericUpDown1.Value = parentForm.myMonitor.normText;
+            numericUpDown1.Value = parentForm.myMonitor.textRate;
         }
 
         string fileName = "";
@@ -53,8 +53,8 @@ namespace ReadEnglish
             ZipFile.CreateFromDirectory(filePath, saveFileDialog1.FileName, CompressionLevel.NoCompression, false);
             Directory.Delete(filePath, true);
             
-            parentForm.myMonitor.normText = (int) numericUpDown1.Value;
-            parentForm.myMonitor.normWords = (int)(numericUpDown1.Value / 200);
+            parentForm.myMonitor.textRate = (int) numericUpDown1.Value;
+            parentForm.myMonitor.wordsRate = (int)(numericUpDown1.Value / 200);
 
             this.Close();
         }
