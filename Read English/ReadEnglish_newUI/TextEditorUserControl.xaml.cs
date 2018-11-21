@@ -21,14 +21,12 @@ namespace ReadEnglish_newUI
     /// </summary>
     public partial class textEditorUserControl : UserControl
     {
+        public event UpdateValue UpdateMonitor;
 
-        public int CountNonSpaceCharacter
+        private int CountNonSpaceCharacter()
         {
-            get
-            {
-                string text = new TextRange(mainRTB.Document.ContentStart, mainRTB.Document.ContentEnd).Text;
-                return Regex.Matches(text, @"[\w]").Count;
-            }
+            string text = new TextRange(mainRTB.Document.ContentStart, mainRTB.Document.ContentEnd).Text;
+            return Regex.Matches(text, @"[\w]").Count;          
         }
 
         public textEditorUserControl()
@@ -103,6 +101,11 @@ namespace ReadEnglish_newUI
 
                 printDialog.PrintDocument(((IDocumentPaginatorSource)flowDoc).DocumentPaginator, "printing as paginator");
             }
+        }
+
+        private void mainRTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateMonitor.Invoke(CountNonSpaceCharacter());            
         }
     }
 }

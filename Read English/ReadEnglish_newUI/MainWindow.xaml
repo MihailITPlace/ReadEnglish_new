@@ -9,8 +9,8 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="ReadEnglish_newUI.MainWindow"               
     
         mc:Ignorable="d"
-        Title="Read English" Height="600" Width="1150" MinWidth="900" MinHeight="600"
-        HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="Read English" Height="600" Width="1150" MinWidth="900" MinHeight="600"        
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <SolidColorBrush x:Key="grayColor" Color="#FFDDE2E2"/>
@@ -103,7 +103,7 @@
             </Controls:MetroTabControl>
         </Grid>
 
-        <local:textEditorUserControl Grid.Column="1" Margin="1,0,0,0"/>
+        <local:textEditorUserControl x:Name="textEditor" Grid.Column="1" Margin="1,0,0,0"/>
 
         <!--<Grid x:Name="textEditor" Grid.Column="1">
             <Grid.RowDefinitions>

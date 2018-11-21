@@ -30,7 +30,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="0/5000"/>
+            <TextBlock x:Name="charsTextBlock"  Grid.Row="0" Text="0/5000"/>
             <TextBlock x:Name="wordsTextBlock" Grid.Row="1" Text="0/25"/>
         </Grid>
     </Grid>

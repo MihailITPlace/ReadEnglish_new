@@ -98,7 +98,7 @@
 
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <RichTextBox x:Name="mainRTB" AcceptsTab="True" SelectionChanged="mainRTB_SelectionChanged"
-                         FontSize="14" FontFamily="Arial" BorderThickness="0,1,0,0"/>
+                         FontSize="14" FontFamily="Arial" BorderThickness="0,1,0,0" TextChanged="mainRTB_TextChanged"/>
             </ScrollViewer>
         </DockPanel>
     </Grid>

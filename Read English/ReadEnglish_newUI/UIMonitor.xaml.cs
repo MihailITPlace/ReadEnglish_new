@@ -60,6 +60,13 @@ namespace ReadEnglish_newUI
 
         //}
 
+        public void UpdateValue(int countChars, int words, int requiredNumberOfCharacters)
+        {          
+            Gauge.Value = (countChars * 100) / requiredNumberOfCharacters;
+            charsTextBlock.Text = countChars + "/" + requiredNumberOfCharacters;
+            wordsTextBlock.Text = words + "/" + (requiredNumberOfCharacters / 200);            
+        }
+
         public UIMonitor()
         {
             InitializeComponent();

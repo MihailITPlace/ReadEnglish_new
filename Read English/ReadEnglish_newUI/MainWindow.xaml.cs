@@ -24,25 +24,25 @@ namespace ReadEnglish_newUI
     public partial class MainWindow : MetroWindow
     {
         List<DictionaryEntry> dictionaryEntryList;
-        StatisticsMonitor test;
+        StatisticsMonitor Monitor;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // настройка словаря
             this.DataContext = this;
-
-            dictionaryEntryList = new List<DictionaryEntry>();
-            test = new StatisticsMonitor("ddddd");            
-
+            dictionaryEntryList = new List<DictionaryEntry>();               
             dictionaryDataGrid.ItemsSource = dictionaryEntryList;
 
-            //Тестирование доступа
-            mainMonitor.Gauge.Value = 67;
-            textMonitor.Gauge.Value = 35;
+            Monitor = new StatisticsMonitor();
 
-            mainMonitor.wordsTextBlock.SetBinding(TextBlock.TextProperty, "test.bla");
-           
+            Monitor.UpdateMonitors += textMonitor.UpdateValue;
+            textEditor.UpdateMonitor += Monitor.UpdateCountOfCharacters;
 
-            test.bla = "12235";
+            //Monitor.PercentOfChar = 75;
+
+            //mainMonitor.wordsTextBlock.SetBinding(TextBlock.TextProperty, "test.bla");  
             //dictionaryEntryList.Add(new DictionaryEntry("aaa", "aaa" , "sss"));
         }
 
